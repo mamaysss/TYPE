@@ -1,0 +1,44 @@
+class Rect {
+  topLeftX: number;
+  topLeftY: number;
+  bottomRightX: number;
+  bottomRightY: number;
+
+  constructor();
+  constructor(x: number, y: number, width: number, height: number);
+
+  constructor(x?: number, y?: number, width?: number, height?: number) {
+    if (x === undefined || y === undefined || width === undefined || height === undefined) {
+      this.topLeftX = 0;
+      this.topLeftY = 0;
+      this.bottomRightX = 0;
+      this.bottomRightY = 0;
+    } else {
+      this.topLeftX = x;
+      this.topLeftY = y;
+      this.bottomRightX = x + width;
+      this.bottomRightY = y + height;
+    }
+  }
+
+  printInfo(): void {
+    console.log(`Верхний левый: (${this.topLeftX}, ${this.topLeftY})`);
+    console.log(`Нижний правый: (${this.bottomRightX}, ${this.bottomRightY})`);
+  }
+}
+
+const rect1 = new Rect(); // Без аргументов
+console.log("Прямоугольник 1:");
+rect1.printInfo();
+
+const rect2 = new Rect(10, 20, 30, 40); // С четырьмя аргументами
+console.log("Прямоугольник 2:");
+rect2.printInfo();
+
+const rect3 = new Rect(5, 5, 10, 10);
+console.log("Прямоугольник 3:");
+rect3.printInfo();
+
+const rect4 = new Rect(-5, -5, 5, 5);
+console.log("Прямоугольник 4:");
+rect4.printInfo();
