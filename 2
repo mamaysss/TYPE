@@ -1,0 +1,51 @@
+
+class Point {
+  x: number;
+  y: number;
+
+  constructor(x: number = 0, y: number = 0) {
+    this.x = x;
+    this.y = y;
+  }
+
+  toString(): string {
+      return `(${this.x}, ${this.y})`;
+  }
+}
+
+
+class Triangle {
+  vertex1: Point;
+  vertex2: Point;
+  vertex3: Point;
+
+  constructor();
+  constructor(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number);
+
+  
+  constructor(x1?: number, y1?: number, x2?: number, y2?: number, x3?: number, y3?: number) {
+      if(x1 === undefined) {
+          this.vertex1 = new Point();
+          this.vertex2 = new Point();
+          this.vertex3 = new Point();
+      } else {
+       
+          this.vertex1 = new Point(x1, y1);
+          this.vertex2 = new Point(x2, y2);
+          this.vertex3 = new Point(x3, y3);
+      }
+  }
+
+    toString(): string {
+      return `Вершины треугольника: 
+      ${this.vertex1.toString()}, 
+      ${this.vertex2.toString()}, 
+      ${this.vertex3.toString()}`;
+    }
+}
+
+const triangle1 = new Triangle();
+const triangle2 = new Triangle(1, 2, 4, 6, 10, 3);
+
+console.log(triangle1.toString());
+console.log(triangle2.toString());
